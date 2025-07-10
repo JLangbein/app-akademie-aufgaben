@@ -46,7 +46,23 @@ class MainApp extends StatelessWidget {
               Divider(thickness: 2.0, indent: 8.0, endIndent: 8.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [/* Icons go here */],
+                children: [
+                  IconWithText(
+                    text: 'Home',
+                    color: Colors.teal,
+                    icon: Icons.home,
+                  ),
+                  IconWithText(
+                    text: 'Likes',
+                    color: Colors.pink,
+                    icon: Icons.favorite,
+                  ),
+                  IconWithText(
+                    text: 'Home',
+                    color: Colors.deepPurple,
+                    icon: Icons.person,
+                  ),
+                ],
               ),
               Container(
                 margin: EdgeInsets.all(16.0),
@@ -79,26 +95,30 @@ class MainApp extends StatelessWidget {
   }
 }
 
-// class IconWithText extends StatelessWidget {
-//   final String text;
-//   final Color color;
-//   final IconData icon;
+class IconWithText extends StatelessWidget {
+  final String text;
+  final Color color;
+  final IconData icon;
 
-//   const IconWithText({
-//     super.key,
-//     required this.text,
-//     required this.color,
-//     required this.icon,
-//   });
+  const IconWithText({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.icon,
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Column(
-//       spacing: 8.0,
-//       children: [Icon(icon, color, size: 24.0), Text(text)],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 8.0,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color, size: 36.0),
+        Text(text, style: TextStyle(fontSize: 16.0)),
+      ],
+    );
+  }
+}
 
 class SubMenu extends StatelessWidget {
   final String title;
@@ -122,7 +142,7 @@ class SubMenu extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [Icon(Icons.arrow_forward)],
+            children: [Icon(Icons.arrow_forward_ios)],
           ),
         ],
       ),
@@ -151,7 +171,7 @@ class BottomEntry extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 8.0,
-                  children: [Icon(Icons.add), Text('Start')],
+                  children: [Icon(Icons.play_arrow), Text('Start')],
                 ),
               ),
             ],
