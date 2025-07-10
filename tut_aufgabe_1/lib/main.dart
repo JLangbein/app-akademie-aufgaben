@@ -84,7 +84,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
               SubMenu(title: 'Einstellungen', icon: Icons.settings),
-              SubMenu(title: 'Datenschuty', icon: Icons.lock),
+              SubMenu(title: 'Datenschutz', icon: Icons.lock),
               SubMenu(title: 'Sprache', icon: Icons.language),
               BottomEntry(),
             ],
@@ -110,7 +110,7 @@ class IconWithText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 8.0,
+      spacing: 6.0,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(icon, color: color, size: 36.0),
@@ -155,29 +155,32 @@ class BottomEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Divider(thickness: 2.0, indent: 8.0, endIndent: 8.0),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Bereit?', style: TextStyle(fontSize: 18.0)),
-              ElevatedButton(
-                onPressed: null,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 8.0,
-                  children: [Icon(Icons.play_arrow), Text('Start')],
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Divider(thickness: 2.0, indent: 8.0, endIndent: 8.0),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 24.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Bereit?', style: TextStyle(fontSize: 18.0)),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 8.0,
+                    children: [Icon(Icons.play_arrow), Text('Start')],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
