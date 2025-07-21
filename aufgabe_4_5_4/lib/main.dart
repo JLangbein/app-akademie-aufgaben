@@ -1,3 +1,6 @@
+import 'package:aufgabe_4_5_4/likes_page.dart';
+import 'package:aufgabe_4_5_4/news_page.dart';
+import 'package:aufgabe_4_5_4/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,11 +12,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        appBar: AppBar(
+          title: Text('MyApp'),
+          centerTitle: true,
+          backgroundColor: Colors.lightGreen,
         ),
+        // body: NewsPage(),
+        // body: LikesPage(),
+        body: ProfilePage()
       ),
     );
   }
