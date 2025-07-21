@@ -26,7 +26,7 @@ class AppHome extends StatefulWidget {
 class _AppHomeState extends State<AppHome> {
   // states (attributes)
   int _currentIndex = 0;
-  static const List<Widget> screens = [NewsPage(), LikesPage(), ProfilePage()];
+  final List<Widget> screens = [NewsPage(), LikesPage(), ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,24 @@ class _AppHomeState extends State<AppHome> {
       appBar: AppBar(
         title: Text('MyApp'),
         centerTitle: true,
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.lime,
       ),
-      // body: NewsPage(),
-      // body: LikesPage(),
-      body: ProfilePage(),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.newspaper), label: 'News'),
+          NavigationDestination(icon: Icon(Icons.thumb_up), label: 'Likes'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+        indicatorColor: Colors.lime,
+        onDestinationSelected: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        selectedIndex: _currentIndex,
+      ),
+
+      body: screens[_currentIndex],
     );
   }
 }
